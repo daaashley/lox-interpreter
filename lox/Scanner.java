@@ -1,14 +1,13 @@
-package com.languageinterpreter.lox;
+package lox;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.Flow.Publisher;
 
-import static com.languageinterpreter.lox.TokenType.*;
+import static lox.TokenType.*;
 
-class Scanner {
+public class Scanner {
     private final String source;
     private final List<Token> tokens = new ArrayList<>();
     private int start = 0;
@@ -91,7 +90,7 @@ class Scanner {
                 addToken(match('=') ? EQUAL_EQUAL : EQUAL);
                 break;
             case '<':
-                addToken(match("=") ? LESS_EQUAL : LESS);
+                addToken(match('=') ? LESS_EQUAL : LESS);
                 break;
             case '>':
                 addToken(match('=') ? GREATER_EQUAL : GREATER);
