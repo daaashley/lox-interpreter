@@ -55,7 +55,7 @@ public class Parser {
         Token name = consume(IDENTIFIER, "Expect variable name.");
 
         Expr initializer = null;
-        if(match(EQUAL)){
+        if (match(EQUAL)) {
             initializer = expression();
         }
 
@@ -129,6 +129,10 @@ public class Parser {
 
         if (match(NUMBER, STRING))
             return new Expr.Literal(previous().literal);
+
+        if (match(IDENTIFIER)) {
+            return new Expr.Variable(previous());
+        }
 
         if (match(LEFT_PAREN)) {
             Expr expr = expression();
