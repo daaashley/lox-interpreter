@@ -5,6 +5,12 @@ class AstPrinter implements Expr.Visitor<String> {
         return expr.accept(this);
     }
 
+    // TODO :: Revisit/fix this visit impl.
+    @Override
+    public String visitVariableExpr(Expr.Variable expr) {
+        return parenthesize("var expr", expr);
+    }
+
     @Override
     public String visitBinaryExpr(Expr.Binary expr) {
         return parenthesize(expr.operator.lexeme,

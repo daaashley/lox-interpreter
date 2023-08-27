@@ -30,9 +30,10 @@ public class Parser {
 
     private Stmt declaration() {
         try {
-            if (match(VAR)) return varDeclaration();
-            return statement()
-        } catch (ParseError) {
+            if (match(VAR))
+                return varDeclaration();
+            return statement();
+        } catch (ParseError error) {
             synchronize();
             return null;
         }
