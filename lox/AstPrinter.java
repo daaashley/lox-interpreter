@@ -5,6 +5,11 @@ class AstPrinter implements Expr.Visitor<String> {
         return expr.accept(this);
     }
 
+    @Override
+    public String visitAssignExpr(Expr.Assign expr) {
+        return parenthesize("var ass", expr);
+    }
+
     // TODO :: Revisit/fix this visit impl.
     @Override
     public String visitVariableExpr(Expr.Variable expr) {
