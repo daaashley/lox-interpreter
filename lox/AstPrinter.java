@@ -10,6 +10,11 @@ class AstPrinter implements Expr.Visitor<String> {
         return parenthesize("var ass", expr);
     }
 
+    @Override
+    public String visitLogicalExpr(Expr.Logical expr) {
+        return parenthesize(expr.operator.lexeme, expr.left, expr.right);
+    }
+
     // TODO :: Revisit/fix this visit impl.
     @Override
     public String visitVariableExpr(Expr.Variable expr) {
