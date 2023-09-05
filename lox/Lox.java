@@ -1,4 +1,12 @@
-// 2023 - David Ashley
+/**
+ * Lox
+ * 
+ * A general-purpose scripting language based
+ * on the implementation and book by Robert Nystrom
+ * 
+ * David Ashley - 2023 - daaashley
+ */
+
 package lox;
 
 import java.io.BufferedReader;
