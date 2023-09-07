@@ -1,5 +1,5 @@
 /**
- * Lox
+ * Lox - jlox interpreter
  * 
  * A general-purpose scripting language based
  * on the implementation and book by Robert Nystrom
