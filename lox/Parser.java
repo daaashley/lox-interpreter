@@ -293,7 +293,7 @@ public class Parser {
                 break;
             }
         }
-        return expression();
+        return expr;
     }
 
     private Expr primary() {
