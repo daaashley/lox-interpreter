@@ -53,4 +53,12 @@ class Resolver implements Expr.Visitor<Void>, Stmt.Visitor<Void> {
         scopes.pop();
     }
 
+    private void declare(Token name) {
+        if (scopes.isEmpty())
+            return;
+
+        Map<String, Boolean> scope = scopes.peek();
+        scope.put(name.lexeme, false);
+    }
+
 }
