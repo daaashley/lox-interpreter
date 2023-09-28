@@ -38,6 +38,13 @@ class Resolver implements Expr.Visitor<Void>, Stmt.Visitor<Void> {
     }
 
     @Override
+    public Void visitClassStmt(Stmt.Class stmt) {
+        declare(stmt.name);
+        define(stmt.name);
+        return null;
+    }
+
+    @Override
     public Void visitExpressionStmt(Stmt.Expression stmt) {
         resolve(stmt.expression);
         return null;
@@ -115,6 +122,11 @@ class Resolver implements Expr.Visitor<Void>, Stmt.Visitor<Void> {
         return null;
     }
 
+    public Void visitGetExpr(Expr.Get expr) {
+        resolve(expr.object);
+        return null;
+    }
+
     @Override
     public Void visitGroupingExpr(Expr.Grouping expr) {
         resolve(expr.expression);
@@ -135,6 +147,13 @@ class Resolver implements Expr.Visitor<Void>, Stmt.Visitor<Void> {
 
     @Override
     public Void visitUnaryExpr(Expr.Unary expr) {
+        resolve(expr.right);
+        return null;
+    }
+
+    @Override
+    public Void visitBinaryExpr(Expr.Binary expr) {
+        resolve(expr.left);
         resolve(expr.right);
         return null;
     }
@@ -185,7 +204,7 @@ class Resolver implements Expr.Visitor<Void>, Stmt.Visitor<Void> {
 
         Map<String, Boolean> scope = scopes.peek();
         if (scope.containsKey(name.lexeme)) {
-            Lox.error(name, "Already variable with this name in this scope.")
+            Lox.error(name, "Already variable with this name in this scope.");
         }
         // We put with false to show resolving hasn't finished
         scope.put(name.lexeme, false);
