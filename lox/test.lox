@@ -8,19 +8,24 @@ fun fib(n) {
   if (n <= 1) return n;  
   return fib(n - 2) + fib(n - 1);
    } 
-   
-for (var i = 0; i < 20; i = i + 1) {
-    print fib(i); 
-    }
 
-var a = 3;
-{
-  var b;
-  {
-    print a + a;
-  }
+var num = 30;
+print "Starting timer...";
+var start = clock();
+print num + "th digit is " + fib(num); 
+var duration = clock() - start;
+print "Duration: ";
+print duration;
+    
+
+// var a = 3;
+// {
+//  var b;
+//  {
+//    print a + a;
+//  }
   
-}
+//}
 
 class Bacon {  
   eat() {    
@@ -28,4 +33,20 @@ class Bacon {
     } 
 } 
 
-Bacon().eat(); // Prints "Crunch crunch crunch!".
+// Bacon().eat();  Prints "Crunch crunch crunch!".
+
+
+class Boy {
+  speak() {
+    print "I am a boy.";
+  }
+}
+
+class David < Boy {
+  speak() {
+    print "My name is David.";
+    super.speak();
+  }
+}
+
+// David().speak();
