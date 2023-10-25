@@ -1,0 +1,11 @@
+// Tests class methods and attributes.
+
+class Bacon {   
+  eat() {    
+    print this.person + " is eating Bacon. Crunch crunch crunch!";  
+    } 
+} 
+
+var bacon = Bacon();
+bacon.person = 'David';
+bacon.eat();

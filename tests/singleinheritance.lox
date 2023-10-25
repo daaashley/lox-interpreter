@@ -1,0 +1,16 @@
+// Tests Single Inheritance and sub/superclass chain.
+
+class Boy {
+  speak() {
+    print "I am a boy.";
+  }
+}
+
+class David < Boy {
+  speak() {
+    print "My name is David.";
+    super.speak();
+  }
+}
+
+David().speak();
